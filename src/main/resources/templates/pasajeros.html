@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Pasajeros</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-
+alpha.6/css/bootstrap.min.css"
+	integrity="sha384-
+rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+	crossorigin="anonymous">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-
+alpha.6/js/bootstrap.min.js"
+	integrity="sha384-
+vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+	<ul class="nav justify-content-end">
+		<li class="nav-item"><a class="nav-link active" href="/">Pasajeros</a></li>
+		<li class="nav-item"><a class="nav-link active" href="/destinos">Destinos</a></li>
+		<li class="nav-item"><a class="nav-link active"
+			href="/pasajeroNuevo">Nuevo Pasajero</a></li>
+		<li class="nav-item"><a class="nav-link active"
+			href="/destinoNuevo">Nuevo Destino</a></li>
+	</ul>
+	<div class="container">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8">
+			<h3>Detalle</h3>
+			<table class="table">
+				<thead class="thead-light">
+					<tr>
+						<th scope="col">Rut</th>
+						<th scope="col">Nombre</th>
+						<th scope="col">Apellido</th>
+						<th scope="col">Edad</th>
+						<th scope="col">Ciudad Natal</th>
+						<th scope="col">Destino</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="pasajero: ${pasajeros}">
+						<td th:text="${pasajero.rut}" />
+						<td th:text="${pasajero.nombre}" />
+						<td th:text="${pasajero.apellido}" />
+						<td th:text="${pasajero.edad}" />
+						<td th:text="${pasajero.ciudadNatal}" />
+						<td>
+							<p th:each="var2:${pasajero.destino}">
+								<span th:text="${var2.ciudad}"></span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-sm-2">
+			<p></p>
+		</div>
+	</div>
+</body>
+</html>
